@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auditly — AI Risk & Compliance Engine for Fintech & Trading Firms</title>
+  <meta name="description" content="Detect regulatory violations, hidden vendor contract liabilities, and payout policy loopholes in seconds for prop trading firms, brokers, and fintechs." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            slatebg: '#0B1120',
+            cardbg: '#111827',
+            borderline: '#1E293B',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#0B1120] text-slate-100 font-sans antialiased selection:bg-blue-500/30 selection:text-blue-200">
+
+  <!-- Subtle Institutional Grid Background -->
+  <div class="fixed inset-0 pointer-events-none opacity-[0.03]" style="background-image: linear-gradient(to right, #94a3b8 1px, transparent 1px), linear-gradient(to bottom, #94a3b8 1px, transparent 1px); background-size: 48px 48px;"></div>
+
+  <!-- 1. TOP NAVBAR -->
+  <header class="sticky top-0 z-40 border-b border-[#1E293B] bg-[#0B1120]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-emerald-500 p-[1px]">
+          <div class="w-full h-full bg-[#0B1120] rounded-[7px] flex items-center justify-center">
+            <svg class="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L4 5.5V11.5C4 16.8 7.4 21.7 12 23C16.6 21.7 20 16.8 20 11.5V5.5L12 2Z" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 12L11 14L15 10" stroke="#10B981" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg font-bold tracking-tight text-white">Auditly</span>
+          <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase bg-slate-800/90 text-slate-300 border border-[#1E293B]">
+            Fintech &amp; Trading Compliance
+          </span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+        <a href="#capabilities" class="hover:text-white transition-colors">Capabilities</a>
+        <a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a>
+        <a href="#sample-audit" class="hover:text-white transition-colors">Sample Audit</a>
+      </nav>
+
+      <!-- CTA Actions -->
+      <div class="flex items-center gap-3">
+        <button onclick="openExecutiveModal()" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium text-slate-300 hover:text-white border border-[#1E293B] hover:border-slate-600 bg-[#111827] transition-all">
+          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          Sample Report
+        </button>
+        <a href="#request-demo" class="inline-flex items-center justify-center px-4 py-2 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 shadow-sm shadow-blue-950 transition-all">
+          Request Demo
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10">
+    <!-- 2. HERO SECTION (2-COLUMN SPLIT) -->
+    <section id="sample-audit" class="pt-12 pb-20 lg:pt-20 lg:pb-28 border-b border-[#1E293B]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Left Column: Institutional Value Proposition -->
+          <div class="lg:col-span-6 space-y-6 pt-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-mono font-medium tracking-wide">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              AUTOMATED REGULATORY &amp; RULEBOOK AUDITING
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-white leading-[1.15]">
+              Auditly — AI Risk &amp; Compliance Engine for Fintech &amp; Trading Firms
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-xl">
+              Detect regulatory violations, hidden vendor &amp; liquidity contract liabilities, and payout policy loopholes in seconds—before they become costly fines or chargeback disputes.
+            </p>
+
+            <!-- Primary & Secondary CTAs -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+              <a href="#request-demo" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-950/50">
+                Request Free Sample Audit
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </a>
+              <button onclick="openExecutiveModal()" class="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg text-sm font-semibold text-slate-200 bg-[#111827] hover:bg-slate-800 border border-[#1E293B] transition-all">
+                View Executive PDF Summary
+              </button>
+            </div>
+
+            <!-- Institutional Trust Metrics -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-[#1E293B]">
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-slate-500">Frameworks</div>
+                <div class="text-sm font-semibold text-slate-200 mt-1">FCA • SEC • MiCA</div>
+              </div>
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-slate-500">Audit Turnaround</div>
+                <div class="text-sm font-semibold text-emerald-400 mt-1">&lt; 90 Seconds</div>
+              </div>
+              <div>
+                <div class="text-xs font-mono uppercase tracking-wider text-slate-500">Data Isolation</div>
+                <div class="text-sm font-semibold text-slate-200 mt-1">Zero Retention</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Live Risk Audit Preview Card -->
+          <div class="lg:col-span-6">
+            <div class="rounded-xl bg-[#111827] border border-[#1E293B] shadow-2xl overflow-hidden">
+              <!-- Report Card Window Header -->
+              <div class="px-4 py-3 bg-[#0d1424] border-b border-[#1E293B] flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                  <span id="preview-doc-title" class="ml-2 text-xs font-mono text-slate-300 truncate max-w-[240px] sm:max-w-xs">
+                    Apex_Funded_Markets_Rulebook_v4.2.pdf
+                  </span>
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  ● SCAN COMPLETE
+                </span>
+              </div>
+
+              <!-- Interactive Audit Switcher Tabs -->
+              <div class="grid grid-cols-3 border-b border-[#1E293B] bg-[#0B1120]/60 text-xs font-medium">
+                <button id="tab-rulebook" onclick="switchAuditTab('rulebook')" class="py-3 px-2 text-center border-b-2 border-blue-500 text-white bg-[#111827] transition-all">
+                  Trader Rulebook
+                </button>
+                <button id="tab-contract" onclick="switchAuditTab('contract')" class="py-3 px-2 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all">
+                  LP / Vendor Contract
+                </button>
+                <button id="tab-marketing" onclick="switchAuditTab('marketing')" class="py-3 px-2 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all">
+                  Marketing Disclosures
+                </button>
+              </div>
+
+              <!-- Dynamic Report Body -->
+              <div id="audit-preview-body" class="p-5 sm:p-6 space-y-5">
+                <!-- Populated by JavaScript -->
+              </div>
+
+              <!-- Card Footer Action -->
+              <div class="px-5 py-3.5 bg-[#0d1424] border-t border-[#1E293B] flex items-center justify-between text-xs">
+                <span class="text-slate-400 font-mono">3 Clauses Flagged • Redlines Ready</span>
+                <button onclick="openExecutiveModal()" class="text-blue-400 hover:text-blue-300 font-semibold inline-flex items-center gap-1">
+                  Open Full Executive Brief →
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. CORE AUDIT MODULES -->
+    <section id="capabilities" class="py-20 border-b border-[#1E293B]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-blue-400">Core Audit Engine</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">Purpose-Built Risk Detection for High-Velocity Financial Firms</h2>
+          <p class="text-slate-400 mt-3 text-sm sm:text-base">
+            Generic legal AI misses trading-specific nuances. Auditly is calibrated for payout dispute triggers, liquidity provider SLAs, and financial promotion regulations.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Module 1 -->
+          <div class="rounded-xl bg-[#111827] border border-[#1E293B] p-6 flex flex-col justify-between hover:border-slate-700 transition-colors">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white">Regulatory &amp; Marketing Compliance</h3>
+              <p class="text-sm text-slate-400 mt-2.5 leading-relaxed">
+                Screen client disclosures, AML/KYC policies, and promotional copy against <strong class="text-slate-200 font-medium">FCA, SEC, FINTRAC, and MiCA</strong> standards before campaign launch.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#1E293B] flex items-center justify-between text-xs font-mono text-slate-400">
+              <span>Unfair FinProm Detection</span>
+              <span class="text-emerald-400">Active</span>
+            </div>
+          </div>
+
+          <!-- Module 2 -->
+          <div class="rounded-xl bg-[#111827] border border-[#1E293B] p-6 flex flex-col justify-between hover:border-slate-700 transition-colors">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white">Contract &amp; Liquidity Risk Audit</h3>
+              <p class="text-sm text-slate-400 mt-2.5 leading-relaxed">
+                Catch hidden indemnification, execution slippage liability, rolling reserve freezes, and asymmetric termination traps in <strong class="text-slate-200 font-medium">broker, LP, and PSP agreements</strong>.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#1E293B] flex items-center justify-between text-xs font-mono text-slate-400">
+              <span>Vendor &amp; PSP Clause Scan</span>
+              <span class="text-emerald-400">Active</span>
+            </div>
+          </div>
+
+          <!-- Module 3 -->
+          <div class="rounded-xl bg-[#111827] border border-[#1E293B] p-6 flex flex-col justify-between hover:border-slate-700 transition-colors">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 0 012 2m-6 9l2 2 4-4"/>
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white">Trading Rulebook Consistency</h3>
+              <p class="text-sm text-slate-400 mt-2.5 leading-relaxed">
+                Cross-check trader terms, trailing drawdown definitions, news-trading windows, and payout policies to eliminate <strong class="text-slate-200 font-medium">ambiguous clauses that trigger chargebacks</strong>.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-[#1E293B] flex items-center justify-between text-xs font-mono text-slate-400">
+              <span>Payout Dispute Prevention</span>
+              <span class="text-emerald-400">Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS (3-STEP HORIZONTAL FLOW) -->
+    <section id="how-it-works" class="py-20 border-b border-[#1E293B] bg-[#0d1424]/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-12">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">Workflow Architecture</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-2">From Raw Policy to Audit-Ready Redlines in 3 Steps</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Step 01 -->
+          <div class="rounded-xl bg-[#111827] border border-[#1E293B] p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs font-bold">STEP 01</span>
+              <span class="text-xs font-mono text-slate-500">PDF • DOCX • URL</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Ingest Policy or Contract</h3>
+            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+              Upload PDF/DOCX trader rulebooks, vendor agreements, or live public Terms &amp; Conditions URLs into an isolated tenant workspace.
+            </p>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="rounded-xl bg-[#111827] border border-[#1E293B] p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs font-bold">STEP 02</span>
+              <span class="text-xs font-mono text-slate-500">CLAUSE ENGINE</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Multi-Layer Risk Mapping</h3>
+            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+              The compliance engine cross-references every clause against regulatory standards, internal FAQ contradictions, and historical chargeback triggers.
+            </p>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="rounded-xl bg-[#111827] border border-[#1E293B] p-6 relative">
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">STEP 03</span>
+              <span class="text-xs font-mono text-slate-500">PDF EXPORT</span>
+            </div>
+            <h3 class="text-lg font-semibold text-white">Audit-Ready PDF Report</h3>
+            <p class="text-sm text-slate-400 mt-2 leading-relaxed">
+              Export a board- and counsel-ready breakdown with severity scores, exact clause citations, and defensible redline replacements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE DEMO & SAMPLE AUDIT REQUEST SECTION -->
+    <section id="request-demo" class="py-20">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="rounded-2xl bg-[#111827] border border-[#1E293B] overflow-hidden shadow-2xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12">
+            
+            <!-- Left Info Panel -->
+            <div class="lg:col-span-5 p-6 sm:p-8 bg-[#0d1424] border-b lg:border-b-0 lg:border-r border-[#1E293B] flex flex-col justify-between">
+              <div>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  COMPLIMENTARY DIAGNOSTIC
+                </span>
+                <h2 class="text-2xl font-bold text-white mt-4">Request a Free Sample Risk Audit</h2>
+                <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                  Share your firm details and we will run an initial compliance &amp; dispute-exposure scan on your public Terms or sample contract—delivered as a 1-page executive PDF.
+                </p>
+
+                <ul class="mt-6 space-y-3 text-sm text-slate-300">
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-emerald-400 mt-0.5">✓</span>
+                    <span>Dedicated isolated sandbox for your compliance team</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-emerald-400 mt-0.5">✓</span>
+                    <span>Top 3 high-severity rulebook or vendor red flags identified</span>
+                  </li>
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-emerald-400 mt-0.5">✓</span>
+                    <span>15-minute live walkthrough with product engineering</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-8 pt-5 border-t border-[#1E293B]">
+                <button type="button" onclick="openExecutiveModal()" class="w-full py-2.5 px-4 rounded-lg text-xs font-semibold text-slate-200 bg-[#111827] hover:bg-slate-800 border border-[#1E293B] transition-all flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  </svg>
+                  Preview Sample Executive Summary PDF
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Lead Form / Confirmation State -->
+            <div class="lg:col-span-7 p-6 sm:p-8">
+              <form id="audit-request-form" onsubmit="handleDemoSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="work-email" class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Work Email *</label>
+                    <input type="email" id="work-email" required placeholder="compliance@yourfirm.com" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0B1120] border border-[#1E293B] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" />
+                  </div>
+                  <div>
+                    <label for="company-name" class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Firm / Company Name *</label>
+                    <input type="text" id="company-name" required placeholder="e.g. Apex Funded Markets" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0B1120] border border-[#1E293B] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="firm-type" class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Firm Type *</label>
+                    <select id="firm-type" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0B1120] border border-[#1E293B] text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+                      <option value="Prop Trading Firm">Prop Trading Firm</option>
+                      <option value="FX / CFD Broker">FX / CFD Broker</option>
+                      <option value="Fintech / Payments">Fintech / Payments</option>
+                      <option value="Crypto Exchange">Crypto Exchange</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="audit-focus" class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Primary Audit Focus</label>
+                    <select id="audit-focus" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0B1120] border border-[#1E293B] text-sm text-white focus:outline-none focus:border-blue-500 transition-colors">
+                      <option value="Trader Rulebook & Payout Terms">Trader Rulebook &amp; Payout Terms</option>
+                      <option value="LP / PSP / Vendor Contracts">LP / PSP / Vendor Contracts</option>
+                      <option value="Regulatory & FinProm Compliance">Regulatory &amp; FinProm Compliance</option>
+                      <option value="Full Compliance Stack Audit">Full Compliance Stack Audit</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="terms-url" class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5">Public Terms URL or Notes (Optional)</label>
+                  <input type="text" id="terms-url" placeholder="https://yourfirm.com/terms-and-conditions" class="w-full px-3.5 py-2.5 rounded-lg bg-[#0B1120] border border-[#1E293B] text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors" />
+                </div>
+
+                <button type="submit" class="w-full py-3 px-5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-950/50 mt-2">
+                  Provision Sandbox &amp; Request Sample Audit
+                </button>
+              </form>
+
+              <!-- Confirmation State (Hidden until submit) -->
+              <div id="audit-confirmation" class="hidden py-6 space-y-4">
+                <div class="w-11 h-11 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-xs font-mono uppercase tracking-wider text-emerald-400">Request Logged • Reference #AUD-2026-894</span>
+                  <h3 class="text-xl font-bold text-white mt-1">Workspace Request Logged</h3>
+                  <p class="text-sm text-slate-300 mt-2 leading-relaxed">
+                    A dedicated sandbox &amp; sample risk breakdown for <strong id="conf-company" class="text-white"></strong> (<span id="conf-type" class="text-slate-400"></span>) will be sent to <strong id="conf-email" class="text-blue-400"></strong>.
+                  </p>
+                </div>
+                <div class="p-3.5 rounded-lg bg-[#0B1120] border border-[#1E293B] text-xs font-mono text-slate-400 space-y-1">
+                  <div>• Focus Area: <span id="conf-focus" class="text-slate-200"></span></div>
+                  <div>• Tenant Isolation: AES-256 Ephemeral Workspace Queued</div>
+                </div>
+                <div class="pt-2 flex flex-wrap gap-3">
+                  <button type="button" onclick="openExecutiveModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors">
+                    Inspect Sample Executive Report Now
+                  </button>
+                  <button type="button" onclick="resetDemoForm()" class="px-4 py-2 rounded-lg text-xs font-medium bg-[#0B1120] hover:bg-slate-800 text-slate-300 border border-[#1E293B] transition-colors">
+                    Submit Another Firm
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 6. FOOTER -->
+  <footer class="border-t border-[#1E293B] bg-[#0B1120] py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <div class="flex items-center gap-2.5">
+        <span class="font-bold text-slate-200">Auditly</span>
+        <span>•</span>
+        <span>&copy; 2026 Auditly. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-2 font-mono text-[11px] text-slate-400 bg-[#111827] px-3 py-1.5 rounded-md border border-[#1E293B]">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        <span>Zero data retention on external models &bull; Isolated tenant workspaces</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- EXECUTIVE RISK SUMMARY MODAL (LIVE DEMO / PRINTABLE BRIEF) -->
+  <div id="executive-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+    <div class="w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl bg-[#111827] border border-[#1E293B] shadow-2xl">
+      <!-- Modal Header -->
+      <div class="sticky top-0 z-10 px-6 py-4 bg-[#0d1424] border-b border-[#1E293B] flex items-center justify-between">
+        <div>
+          <span class="text-[11px] font-mono uppercase tracking-wider text-blue-400">Auditly Executive Risk Brief</span>
+          <h3 class="text-base sm:text-lg font-bold text-white">Sample Compliance &amp; Dispute Exposure Audit</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.print()" class="px-3 py-1.5 rounded-md text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-[#1E293B]">
+            Print / Save PDF
+          </button>
+          <button onclick="closeExecutiveModal()" class="p-1.5 rounded-md text-slate-400 hover:text-white hover:bg-slate-800">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Content -->
+      <div class="p-6 space-y-6 text-sm">
+        <!-- Executive Metadata Header -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-lg bg-[#0B1120] border border-[#1E293B] font-mono text-xs">
+          <div>
+            <div class="text-slate-500">TARGET ENTITY</div>
+            <div class="text-white font-semibold mt-0.5">Apex Funded Markets</div>
+          </div>
+          <div>
+            <div class="text-slate-500">DOCUMENT</div>
+            <div class="text-slate-200 mt-0.5">Rulebook &amp; Payout v4.2</div>
+          </div>
+          <div>
+            <div class="text-slate-500">EXPOSURE SCORE</div>
+            <div class="text-amber-400 font-bold mt-0.5">78 / 100 (HIGH)</div>
+          </div>
+          <div>
+            <div class="text-slate-500">AUDIT ENGINE</div>
+            <div class="text-emerald-400 mt-0.5">Auditly v2.4 Core</div>
+          </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div>
+          <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">1. Executive Risk Summary</h4>
+          <p class="text-slate-300 leading-relaxed">
+            Automated cross-examination of the public Trader Agreement against FAQ payout rules and payment processor underwriting guidelines identified <strong class="text-white">3 material ambiguities</strong>. Left unpatched, these clauses create elevated Visa/Mastercard dispute loss rates and regulatory misrepresentation exposure under FCA/MiCA financial promotion standards.
+          </p>
+        </div>
+
+        <!-- Detailed Findings -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400">2. Priority Findings &amp; Redline Fixes</h4>
+
+          <div class="p-4 rounded-lg bg-[#0B1120] border border-[#1E293B] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Clause 8.4 — Discretionary Payout Hold ("Gambling Behavior")</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-rose-500/15 text-rose-400 border border-rose-500/30">CRITICAL</span>
+            </div>
+            <p class="text-xs text-slate-400">
+              <strong class="text-slate-300">Exposure:</strong> Term "gambling-style margin utilization" is undefined numerically, causing high chargeback loss rates when payouts are denied.
+            </p>
+            <p class="text-xs text-emerald-400 font-mono">
+              + Redline Fix: Define objective threshold (e.g., &gt;65% max margin allocation within 120 seconds of Tier-1 macro release).
+            </p>
+          </div>
+
+          <div class="p-4 rounded-lg bg-[#0B1120] border border-[#1E293B] space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-semibold text-white">Section 11.2 — Trailing vs. Static Drawdown Contradiction</span>
+              <span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30">HIGH</span>
+            </div>
+            <p class="text-xs text-slate-400">
+              <strong class="text-slate-300">Exposure:</strong> Terms state intraday equity trailing drawdown while Checkout FAQ states end-of-day balance drawdown.
+            </p>
+            <p class="text-xs text-emerald-400 font-mono">
+              + Redline Fix: Harmonize Section 11.2 with Checkout FAQ and embed explicit equity calculation formula.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 bg-[#0d1424] border-t border-[#1E293B] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span class="text-xs text-slate-400">Want this exact diagnostic run on your firm's documents?</span>
+        <a href="#request-demo" onclick="closeExecutiveModal()" class="px-4 py-2 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors">
+          Request Custom Audit
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE LOGIC -->
+  <script>
+    const auditDatasets = {
+      rulebook: {
+        docTitle: 'Apex_Funded_Markets_Rulebook_v4.2.pdf',
+        score: '78 / 100',
+        scoreLabel: 'HIGH DISPUTE EXPOSURE',
+        scoreColor: 'text-amber-400',
+        barWidth: '78%',
+        barColor: 'bg-amber-500',
+        findings: [
+          {
+            severity: 'CRITICAL',
+            badgeClass: 'bg-rose-500/15 text-rose-400 border-rose-500/30',
+            clause: 'Clause 8.4 — Undefined "Gambling Behavior" Payout Denial',
+            excerpt: '"Company reserves the right to void payouts if trader exhibits gambling-like leverage..."',
+            impact: 'Triggers PSP chargeback reversals due to subjective post-trade disqualification.',
+            fix: 'Add quantitative margin & news-window thresholds.'
+          },
+          {
+            severity: 'HIGH',
+            badgeClass: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
+            clause: 'Section 11.2 — Intraday vs. EOD Drawdown Mismatch',
+            excerpt: 'Terms specify real-time equity drawdown; public FAQ states EOD balance.',
+            impact: 'Direct contradiction creates breach-of-contract claims.',
+            fix: 'Align Section 11.2 wording with checkout disclosures.'
+          }
+        ]
+      },
+      contract: {
+        docTitle: 'PrimeLP_Liquidity_Bridge_Agreement_2026.docx',
+        score: '82 / 100',
+        scoreLabel: 'SEVERE LIABILITY TRAP',
+        scoreColor: 'text-rose-400',
+        barWidth: '82%',
+        barColor: 'bg-rose-500',
+        findings: [
+          {
+            severity: 'CRITICAL',
+            badgeClass: 'bg-rose-500/15 text-rose-400 border-rose-500/30',
+            clause: 'Clause 14.1 — Uncapped Asymmetric Slippage Indemnification',
+            excerpt: '"Broker indemnifies LP for all toxic flow & latency arbitrage losses without cap..."',
+            impact: 'Exposes broker balance sheet to uncapped LP clawbacks during volatility spikes.',
+            fix: 'Cap liability at 30-day trailing fee volume and define toxicity.'
+          },
+          {
+            severity: 'MODERATE',
+            badgeClass: 'bg-blue-500/15 text-blue-400 border-blue-500/30',
+            clause: 'Clause 19.3 — 48-Hour Liquidity Suspension Notice',
+            excerpt: '"LP may suspend margin feed upon 48 hours written notice for any reason."',
+            impact: 'Insufficient window to migrate open client book to backup LP.',
+            fix: 'Negotiate 30-day minimum notice for non-default termination.'
+          }
+        ]
+      },
+      marketing: {
+        docTitle: 'EU_UK_Paid_Acquisition_Landing_Copy.html',
+        score: '71 / 100',
+        scoreLabel: 'REGULATORY RED FLAG',
+        scoreColor: 'text-amber-400',
+        barWidth: '71%',
+        barColor: 'bg-amber-500',
+        findings: [
+          {
+            severity: 'CRITICAL',
+            badgeClass: 'bg-rose-500/15 text-rose-400 border-rose-500/30',
+            clause: 'Hero Banner — Guaranteed Monthly Yield Implication',
+            excerpt: '"Turn $500 into a $10,000 monthly trader paycheck in 14 days."',
+            impact: 'Violates FCA FG21/1 & MiCA financial promotion fairness rules.',
+            fix: 'Remove income guarantee framing; add prominent risk warning.'
+          },
+          {
+            severity: 'HIGH',
+            badgeClass: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
+            clause: 'Footer Disclosure — Simulated Environment Omission',
+            excerpt: 'Fails to state that evaluation & funded stages execute on simulated feeds.',
+            impact: 'High regulatory enforcement & consumer deception risk.',
+            fix: 'Add clear simulated-capital disclosure above CTA.'
+          }
+        ]
+      }
+    };
+
+    function switchAuditTab(tabKey) {
+      const data = auditDatasets[tabKey];
+      if (!data) return;
+
+      // Update Tab Styles
+      ['rulebook', 'contract', 'marketing'].forEach(key => {
+        const btn = document.getElementById(`tab-${key}`);
+        if (key === tabKey) {
+          btn.className = 'py-3 px-2 text-center border-b-2 border-blue-500 text-white bg-[#111827] transition-all';
+        } else {
+          btn.className = 'py-3 px-2 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all';
+        }
+      });
+
+      // Update Document Filename
+      document.getElementById('preview-doc-title').textContent = data.docTitle;
+
+      // Render Findings
+      const bodyEl = document.getElementById('audit-preview-body');
+      bodyEl.innerHTML = `
+        <div class="p-4 rounded-lg bg-[#0B1120] border border-[#1E293B]">
+          <div class="flex items-center justify-between text-xs font-mono mb-2">
+            <span class="text-slate-400">OVERALL RISK EXPOSURE</span>
+            <span class="${data.scoreColor} font-bold">${data.score} • ${data.scoreLabel}</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+            <div class="h-full ${data.barColor} rounded-full transition-all duration-300" style="width: ${data.barWidth}"></div>
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          ${data.findings.map(item => `
+            <div class="p-3.5 rounded-lg bg-[#0B1120]/90 border border-[#1E293B] space-y-1.5">
+              <div class="flex items-start justify-between gap-2">
+                <span class="text-xs font-semibold text-white">${item.clause}</span>
+                <span class="shrink-0 px-2 py-0.5 rounded text-[10px] font-mono font-semibold border ${item.badgeClass}">
+                  ${item.severity}
+                </span>
+              </div>
+              <p class="text-[11px] font-mono text-slate-400 bg-[#111827] px-2.5 py-1.5 rounded border border-[#1E293B]/80">
+                ${item.excerpt}
+              </p>
+              <p class="text-xs text-slate-300">
+                <span class="text-slate-500">Impact:</span> ${item.impact}
+              </p>
+              <p class="text-xs text-emerald-400 font-mono">
+                ✓ Fix: ${item.fix}
+              </p>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function handleDemoSubmit(event) {
+      event.preventDefault();
+      const email = document.getElementById('work-email').value.trim();
+      const company = document.getElementById('company-name').value.trim();
+      const firmType = document.getElementById('firm-type').value;
+      const focus = document.getElementById('audit-focus').value;
+
+      document.getElementById('conf-email').textContent = email;
+      document.getElementById('conf-company').textContent = company;
+      document.getElementById('conf-type').textContent = firmType;
+      document.getElementById('conf-focus').textContent = focus;
+
+      document.getElementById('audit-request-form').classList.add('hidden');
+      document.getElementById('audit-confirmation').classList.remove('hidden');
+    }
+
+    function resetDemoForm() {
+      document.getElementById('audit-request-form').reset();
+      document.getElementById('audit-confirmation').classList.add('hidden');
+      document.getElementById('audit-request-form').classList.remove('hidden');
+    }
+
+    function openExecutiveModal() {
+      const modal = document.getElementById('executive-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeExecutiveModal() {
+      const modal = document.getElementById('executive-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Close modal on backdrop click or Escape key
+    document.getElementById('executive-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeExecutiveModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeExecutiveModal();
+    });
+
+    // Initialize default preview tab
+    switchAuditTab('rulebook');
+  </script>
+</body>
+</html>
